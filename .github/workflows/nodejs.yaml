@@ -1,0 +1,22 @@
+name: CI/CD para Node.js
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v2
+
+      - name: Instalar dependencias
+        run: |
+          npm install
+
+      - name: Ejecutar pruebas
+        run: |
+          npm test
